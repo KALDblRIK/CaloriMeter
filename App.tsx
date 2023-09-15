@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -16,6 +9,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {Button} from 'react-native-paper';
 
 import {
   Colors,
@@ -89,6 +83,7 @@ function App(): JSX.Element {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
+          <Button>Some button</Button>
           <LearnMoreLinks />
         </View>
       </ScrollView>
