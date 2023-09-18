@@ -23,7 +23,7 @@ export const NavigationWrapper = () => {
         component={HistoryScreen}
         options={{
           tabBarLabel: 'History',
-          tabBarIcon: 'bell',
+          tabBarIcon: 'history',
         }}
       />
       <Tab.Screen
