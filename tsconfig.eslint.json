@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "assets/**/*.ts",
+    "assets/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "__tests__/**/*.tsx",
+    "coverage/**/*.js",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    "jest/jest.setup.js",
+    "react-native.config.js",
+    "index.js",
+    "rn-cli.config.js",
+    "index.d.ts",
+    "features/**/*",
+  ],
+  "exclude": []
+}
