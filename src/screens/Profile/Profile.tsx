@@ -1,19 +1,20 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Appbar, useTheme } from 'react-native-paper'
 
 export const ProfileScreen = () => {
+  const theme = useTheme()
   return (
-    <View style={style.container}>
-      <Text>Profile Screen</Text>
+    <View style={style.wrapper}>
+      <Appbar.Header theme={theme} mode="small">
+        <Appbar.Content title="Profile" />
+      </Appbar.Header>
     </View>
   )
 }
 
 const style = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })
