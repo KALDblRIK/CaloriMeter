@@ -40,7 +40,7 @@ export const ProfileScreen = () => {
           mode="outlined"
           enterKeyHint='done'
           keyboardType='number-pad'
-          value={isNaN(maxCaloriesPerDay) ? '0' : maxCaloriesPerDay.toString()}
+          value={maxCaloriesPerDay.toString()}
           onChangeText={onChangeMaxCaloriesPerDay}
         />
       </View>
