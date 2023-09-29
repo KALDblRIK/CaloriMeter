@@ -12,7 +12,7 @@ import { storeConfig } from './src/store'
 
 const App = () => {
   const colorScheme = useColorScheme()
-  const { theme } = useMaterial3Theme({ fallbackSourceColor: '#85f8cb' })
+  const { theme } = useMaterial3Theme({ fallbackSourceColor: '#8FD6BD' })
   const paperTheme = colorScheme === 'dark' ? { ...MD3DarkTheme, colors: theme.dark } : { ...MD3LightTheme, colors: theme.light }
 
   return (
