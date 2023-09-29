@@ -2,7 +2,7 @@ import { useObject, useRealm } from '@realm/react'
 import React, { useCallback, useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Appbar, TextInput, useTheme } from 'react-native-paper'
-import { Profile } from '../../../App'
+import { Profile } from '../../store'
 
 
 export const ProfileScreen = () => {
