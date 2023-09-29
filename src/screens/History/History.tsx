@@ -1,19 +1,21 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Appbar, useTheme } from 'react-native-paper'
 
 export const HistoryScreen = () => {
+  const theme = useTheme()
+
   return (
-    <View style={style.container}>
-      <Text>History Screen</Text>
+    <View style={[styles.wrapper, { backgroundColor: theme.colors.background }]}>
+      <Appbar.Header theme={theme} mode="small">
+        <Appbar.Content title="History" />
+      </Appbar.Header>
     </View>
   )
 }
 
-const style = StyleSheet.create({
-  container: {
+const styles = StyleSheet.create({
+  wrapper: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })

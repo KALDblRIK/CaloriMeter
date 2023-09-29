@@ -30,7 +30,7 @@ export const ProfileScreen = () => {
   }, [profile, realm])
   
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, { backgroundColor: theme.colors.background }]}>
       <Appbar.Header theme={theme} mode="small">
         <Appbar.Content title="Profile" />
       </Appbar.Header>
