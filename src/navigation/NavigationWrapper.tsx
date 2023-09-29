@@ -13,7 +13,7 @@ export const NavigationWrapper = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      tabBar={NavigationBar}
+      tabBar={(props) => <NavigationBar {...props} />}
     >
       <Tab.Screen
         name="Home"

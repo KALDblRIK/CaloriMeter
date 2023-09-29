@@ -1,10 +1,24 @@
 import React from 'react'
 import { CommonActions } from '@react-navigation/native'
-import { BottomNavigation } from 'react-native-paper'
+import { BottomNavigation, Text } from 'react-native-paper'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
+import { useWindowDimensions } from 'react-native'
 
 export const NavigationBar = (props: BottomTabBarProps) => {
   const { navigation, state, descriptors, insets } = props
+  const { width } = useWindowDimensions()
+
+  if (width >= 600 && width < 840) {
+    return (
+      <Text>Medium</Text>
+    )
+  }
+
+  if (width >= 840) {
+    return (
+      <Text>Medium</Text>
+    )
+  }
 
   return (
     <BottomNavigation.Bar
