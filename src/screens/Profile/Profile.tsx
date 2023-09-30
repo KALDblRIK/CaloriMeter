@@ -30,7 +30,7 @@ export const ProfileScreen = () => {
   }, [profile, realm])
   
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, { backgroundColor: theme.colors.background }]}>
       <Appbar.Header theme={theme} mode="small">
         <Appbar.Content title="Profile" />
       </Appbar.Header>
@@ -40,7 +40,7 @@ export const ProfileScreen = () => {
           mode="outlined"
           enterKeyHint='done'
           keyboardType='number-pad'
-          value={isNaN(maxCaloriesPerDay) ? '0' : maxCaloriesPerDay.toString()}
+          value={maxCaloriesPerDay.toString()}
           onChangeText={onChangeMaxCaloriesPerDay}
         />
       </View>
@@ -50,7 +50,7 @@ export const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flexGrow: 1,
   },
   form: {
     margin: 16,

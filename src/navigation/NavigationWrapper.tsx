@@ -1,21 +1,30 @@
 import React from 'react'
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { HomeScreen } from '../screens/Home'
-import { HistoryScreen } from '../screens/History'
-import { ProfileScreen } from '../screens/Profile'
+import { createMyNavigator } from './TabNavigator'
+import { HistoryScreen, TodayScreen, ProfileScreen } from '../screens'
 
-const Tab = createMaterialBottomTabNavigator()
+const Tab = createMyNavigator()
 
 export const NavigationWrapper = () => {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="Home"
+      actionButtons={[{
+        label: 'Add meal',
+        icon: 'plus',
+        onPress: () => {}
+      }]}
+    >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Today"
+        component={TodayScreen}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: 'home',
+          tabBarLabel: 'Today',
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
+            return <Icon name="calendar-today" size={size} color={color} />
+          },
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -23,7 +32,10 @@ export const NavigationWrapper = () => {
         component={HistoryScreen}
         options={{
           tabBarLabel: 'History',
-          tabBarIcon: 'history',
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
+            return <Icon name="history" size={size} color={color} />
+          },
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -31,7 +43,10 @@ export const NavigationWrapper = () => {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: 'account',
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
+            return <Icon name="account" size={size} color={color} />
+          },
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
