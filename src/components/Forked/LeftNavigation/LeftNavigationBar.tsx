@@ -383,7 +383,6 @@ const LeftNavigationBar = <Route extends BaseRoute>({
   theme: themeOverrides,
   actionButtons,
 }: Props<Route>) => {
-  console.log(actionButtons)
   const theme = useInternalTheme(themeOverrides)
   const { bottom, left, right } = useSafeAreaInsets()
   const { scale } = theme.animation
@@ -622,6 +621,18 @@ const LeftNavigationBar = <Route extends BaseRoute>({
         style={[styles.barContent, { backgroundColor }]}
         testID={`${testID}-content`}
       >
+        <View style={[styles.fabs, { top: (safeAreaInsets?.top ?? 0) + 24 }]}>
+          {actionButtons?.map((props) => (
+            <FAB
+              key={props.label}
+              icon={props.icon}
+              onPress={props.onPress}
+              style={styles.fab}
+              mode='flat'
+              customSize={56}
+            />
+          ))}
+        </View>
         <View
           style={[
             styles.items,
@@ -635,18 +646,6 @@ const LeftNavigationBar = <Route extends BaseRoute>({
           accessibilityRole={'tablist'}
           testID={`${testID}-content-wrapper`}
         >
-          <View style={styles.fabs}>
-            {actionButtons?.map((props) => (
-              <FAB
-                key={props.label}
-                icon={props.icon}
-                onPress={props.onPress}
-                style={styles.fab}
-                mode='flat'
-                customSize={64}
-              />
-            ))}
-          </View>
           {shifting && !isV3 ? (
             <Animated.View
               pointerEvents="none"
@@ -825,7 +824,7 @@ const LeftNavigationBar = <Route extends BaseRoute>({
                         <Icon
                           source={route.focusedIcon as IconSource}
                           color={activeTintColor}
-                          size={36}
+                          size={24}
                         />
                       )}
                     </Animated.View>
@@ -852,7 +851,7 @@ const LeftNavigationBar = <Route extends BaseRoute>({
                               : (route.focusedIcon as IconSource)
                           }
                           color={inactiveTintColor}
-                          size={36}
+                          size={24}
                         />
                       )}
                     </Animated.View>
@@ -960,20 +959,20 @@ const styles = StyleSheet.create({
   },
   barContent: {
     alignItems: 'center',
+    justifyContent: 'center',
     height: '100%',
     overflow: 'hidden',
+    position: 'relative',
   },
   fabs: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 32,
+    position: 'absolute',
+    left: 12,
   },
   fab: {
-    width: 64,
-    height: 64,
+    width: 56,
+    height: 56,
   },
   items: {
-    marginTop: 64,
     justifyContent: 'flex-start',
     ...(Platform.OS === 'web'
       ? {
@@ -981,27 +980,19 @@ const styles = StyleSheet.create({
         }
       : null),
   },
-  item: {
-    // Top padding is 6 and bottom padding is 10
-    // The extra 4dp bottom padding is offset by label's height
-    paddingHorizontal: 16,
-  },
-  v3Item: {
-    paddingVertical: 8,
-  },
   ripple: {
     position: 'absolute',
   },
   iconContainer: {
-    height: 36,
-    width: 36,
+    height: 32,
+    width: 32,
     marginTop: 2,
     marginHorizontal: 12,
     alignSelf: 'center',
   },
   v3IconContainer: {
-    height: 48,
-    width: 48,
+    height: 32,
+    width: 32,
     marginTop: 0,
     justifyContent: 'center',
   },
@@ -1010,7 +1001,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   v3IconWrapper: {
-    top: 12,
+    top: 4,
   },
   labelContainer: {
     height: 24,
@@ -1046,9 +1037,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   outline: {
-    width: OUTLINE_WIDTH,
-    height: OUTLINE_WIDTH / 2,
-    borderRadius: OUTLINE_WIDTH / 4,
+    width: 56,
+    height: 32,
+    borderRadius: 16,
     alignSelf: 'center',
   },
   elevation: {

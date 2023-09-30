@@ -13,7 +13,7 @@ export const NavigationWrapper = () => {
       actionButtons={[{
         label: 'Add meal',
         icon: 'plus',
-        onPress: () => console.log('Add meal')
+        onPress: () => {}
       }]}
     >
       <Tab.Screen
