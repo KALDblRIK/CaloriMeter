@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, StyleSheet, SafeAreaView } from 'react-native'
-import { Appbar, FAB, Text, useTheme } from 'react-native-paper'
+import { StyleSheet, SafeAreaView } from 'react-native'
+import { Appbar, FAB, useTheme } from 'react-native-paper'
 
 export const HomeScreen = () => {
   const theme = useTheme()

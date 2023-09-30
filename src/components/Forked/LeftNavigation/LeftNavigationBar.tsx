@@ -622,11 +622,10 @@ const LeftNavigationBar = <Route extends BaseRoute>({
           style={[
             styles.items,
             {
-              marginLeft: insets.bottom,
               marginHorizontal: Math.max(insets.left, insets.right),
             },
             compact && {
-              maxWidth: maxTabBarWidth,
+              maxHeight: maxTabBarWidth,
             },
           ]}
           accessibilityRole={'tablist'}
@@ -744,7 +743,7 @@ const LeftNavigationBar = <Route extends BaseRoute>({
 
             const isV3Shifting = isV3 && shifting && labeled
 
-            const font = isV3 ? theme.fonts.labelMedium : {}
+            const font = isV3 ? theme.fonts.labelLarge : {}
 
             return renderTouchable({
               key: route.key,
@@ -810,7 +809,7 @@ const LeftNavigationBar = <Route extends BaseRoute>({
                         <Icon
                           source={route.focusedIcon as IconSource}
                           color={activeTintColor}
-                          size={24}
+                          size={36}
                         />
                       )}
                     </Animated.View>
@@ -837,7 +836,7 @@ const LeftNavigationBar = <Route extends BaseRoute>({
                               : (route.focusedIcon as IconSource)
                           }
                           color={inactiveTintColor}
-                          size={24}
+                          size={36}
                         />
                       )}
                     </Animated.View>
@@ -945,10 +944,12 @@ const styles = StyleSheet.create({
   },
   barContent: {
     alignItems: 'center',
+    height: '100%',
     overflow: 'hidden',
   },
   items: {
-    flexDirection: 'row',
+    marginTop: 64,
+    justifyContent: 'flex-start',
     ...(Platform.OS === 'web'
       ? {
           width: '100%',
@@ -956,28 +957,26 @@ const styles = StyleSheet.create({
       : null),
   },
   item: {
-    flex: 1,
     // Top padding is 6 and bottom padding is 10
     // The extra 4dp bottom padding is offset by label's height
-    paddingVertical: 6,
+    paddingHorizontal: 16,
   },
   v3Item: {
-    paddingVertical: 0,
+    paddingVertical: 8,
   },
   ripple: {
     position: 'absolute',
   },
   iconContainer: {
-    height: 24,
-    width: 24,
+    height: 36,
+    width: 36,
     marginTop: 2,
     marginHorizontal: 12,
     alignSelf: 'center',
   },
   v3IconContainer: {
-    height: 32,
-    width: 32,
-    marginLeft: 4,
+    height: 48,
+    width: 48,
     marginTop: 0,
     justifyContent: 'center',
   },
@@ -986,10 +985,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   v3IconWrapper: {
-    top: 4,
+    top: 12,
   },
   labelContainer: {
-    height: 16,
+    height: 24,
     paddingLeft: 2,
   },
   labelWrapper: {
@@ -997,7 +996,7 @@ const styles = StyleSheet.create({
   },
   // eslint-disable-next-line react-native/no-color-literals
   label: {
-    fontSize: 12,
+    fontSize: 18,
     height: BAR_HEIGHT,
     textAlign: 'center',
     backgroundColor: 'transparent',
@@ -1013,8 +1012,8 @@ const styles = StyleSheet.create({
     left: 0,
   },
   v3TouchableContainer: {
-    paddingTop: 12,
-    paddingLeft: 16,
+    paddingTop: 16,
+    paddingHorizontal: 12,
   },
   v3NoLabelContainer: {
     height: 80,
