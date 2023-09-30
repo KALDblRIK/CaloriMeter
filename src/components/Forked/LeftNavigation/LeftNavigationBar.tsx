@@ -36,6 +36,7 @@ import useLayout from '../useLayout'
 import useIsKeyboardShown from '../useIsKeyboardShown'
 import { black, white } from '../colors'
 import Icon from '../Icon'
+import { ActionButtonProps } from '../../../navigation/TabNavigator'
 
 type BaseRoute = {
   key: string
@@ -209,6 +210,7 @@ export type Props<Route extends BaseRoute> = {
    * TestID used for testing purposes
    */
   testID?: string
+  actionButtons?: ActionButtonProps[]
 };
 
 const MIN_RIPPLE_SCALE = 0.001 // Minimum scale is not 0 due to bug with animation
@@ -379,7 +381,9 @@ const LeftNavigationBar = <Route extends BaseRoute>({
   compact: compactProp,
   testID = 'bottom-navigation-bar',
   theme: themeOverrides,
+  actionButtons,
 }: Props<Route>) => {
+  console.log(actionButtons)
   const theme = useInternalTheme(themeOverrides)
   const { bottom, left, right } = useSafeAreaInsets()
   const { scale } = theme.animation

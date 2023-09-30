@@ -4,16 +4,18 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 import { EdgeInsets } from 'react-native-safe-area-context'
 import { useTheme } from 'react-native-paper'
 import LeftNavigation from '../../../components/Forked/LeftNavigation/LeftNavigation'
+import { ActionButtonProps } from '../TabNavigator'
 
 type MediumProps = {
   navigationProps: ReturnType<typeof useNavigationBuilder>
   insets: EdgeInsets
   tabBarStyle: StyleProp<ViewStyle>
   contentStyle: StyleProp<ViewStyle>
+  actionButtons?: ActionButtonProps[]
 }
 
 export const Medium = (props: MediumProps) => {
-  const { navigationProps, insets, contentStyle } = props
+  const { navigationProps, insets, contentStyle, actionButtons } = props
   const theme = useTheme()
   const { navigation, NavigationContent, state, descriptors } = navigationProps
 
@@ -23,6 +25,7 @@ export const Medium = (props: MediumProps) => {
         <LeftNavigation.Bar
           navigationState={state}
           safeAreaInsets={insets}
+          actionButtons={actionButtons}
           onTabPress={({ route }) => {
             const event = navigation.emit({
               type: 'tabPress',
@@ -54,7 +57,7 @@ export const Medium = (props: MediumProps) => {
           }}
           theme={theme}
         />
-        <View style={[styles.content, contentStyle]}>
+        <View style={[styles.content, contentStyle, { backgroundColor: theme.colors.background }]}>
           {state.routes.map((route, i) => {
             return (
               <View

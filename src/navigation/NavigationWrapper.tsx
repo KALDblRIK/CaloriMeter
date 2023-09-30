@@ -10,6 +10,11 @@ export const NavigationWrapper = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
+      actionButtons={[{
+        label: 'Add meal',
+        icon: 'plus',
+        onPress: () => console.log('Add meal')
+      }]}
     >
       <Tab.Screen
         name="Home"

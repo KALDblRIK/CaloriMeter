@@ -15,6 +15,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 type TabNavigationConfig = {
   tabBarStyle?: StyleProp<ViewStyle>
   contentStyle?: StyleProp<ViewStyle>
+  actionButtons?: ActionButtonProps[]
+}
+
+export type ActionButtonProps = {
+  label: string
+  icon: string
+  onPress: () => void
 }
 
 type TabNavigationOptions = {
@@ -45,6 +52,7 @@ const TabNavigator = (props: TabNavigatorProps) => {
     screenOptions,
     tabBarStyle,
     contentStyle,
+    actionButtons,
   } = props
   const insets = useSafeAreaInsets()
 
@@ -64,6 +72,7 @@ const TabNavigator = (props: TabNavigatorProps) => {
         tabBarStyle={tabBarStyle}
         contentStyle={contentStyle}
         navigationProps={navigationProps}
+        actionButtons={actionButtons}
       />
     )
   }
@@ -74,6 +83,7 @@ const TabNavigator = (props: TabNavigatorProps) => {
       tabBarStyle={tabBarStyle}
       contentStyle={contentStyle}
       navigationProps={navigationProps}
+      actionButtons={actionButtons}
     />
   )
 }
