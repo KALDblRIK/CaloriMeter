@@ -36,7 +36,7 @@ export const Compact = (props: CompactProps) => {
         </>
         {actionButtons?.map((props) => (
           <FAB
-            key={props.title}
+            key={props.label}
             style={styles.fab}
             {...props}
           />)

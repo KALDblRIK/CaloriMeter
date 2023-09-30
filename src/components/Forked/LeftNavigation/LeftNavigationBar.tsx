@@ -30,7 +30,7 @@ import {
 import { useInternalTheme } from '../theming'
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon'
 import { ThemeProp } from 'react-native-paper/lib/typescript/types'
-import { Badge, Surface, Text, TouchableRipple, overlay } from 'react-native-paper'
+import { Badge, FAB, Surface, Text, TouchableRipple, overlay } from 'react-native-paper'
 import useAnimatedValueArray from '../useAnimatedValueArray'
 import useLayout from '../useLayout'
 import useIsKeyboardShown from '../useIsKeyboardShown'
@@ -635,6 +635,18 @@ const LeftNavigationBar = <Route extends BaseRoute>({
           accessibilityRole={'tablist'}
           testID={`${testID}-content-wrapper`}
         >
+          <View style={styles.fabs}>
+            {actionButtons?.map((props) => (
+              <FAB
+                key={props.label}
+                icon={props.icon}
+                onPress={props.onPress}
+                style={styles.fab}
+                mode='flat'
+                customSize={64}
+              />
+            ))}
+          </View>
           {shifting && !isV3 ? (
             <Animated.View
               pointerEvents="none"
@@ -950,6 +962,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: '100%',
     overflow: 'hidden',
+  },
+  fabs: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  fab: {
+    width: 64,
+    height: 64,
   },
   items: {
     marginTop: 64,
