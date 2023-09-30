@@ -3,6 +3,7 @@
 /* eslint-disable max-lines */
 /* eslint-disable complexity */
 /* eslint-disable max-lines-per-function */
+/* @ts-nocheck */
 import * as React from 'react'
 import {
   Animated,
@@ -25,15 +26,16 @@ import {
   getActiveTintColor,
   getInactiveTintColor,
   getLabelColor,
-} from './utils'
-import { useInternalTheme } from './theming'
+} from '../utils'
+import { useInternalTheme } from '../theming'
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon'
 import { ThemeProp } from 'react-native-paper/lib/typescript/types'
 import { Badge, Surface, Text, TouchableRipple, overlay } from 'react-native-paper'
-import useAnimatedValueArray from './useAnimatedValueArray'
-import useLayout from './useLayout'
-import useIsKeyboardShown from './useIsKeyboardShown'
-import { black, white } from './colors'
+import useAnimatedValueArray from '../useAnimatedValueArray'
+import useLayout from '../useLayout'
+import useIsKeyboardShown from '../useIsKeyboardShown'
+import { black, white } from '../colors'
+import Icon from '../Icon'
 
 type BaseRoute = {
   key: string

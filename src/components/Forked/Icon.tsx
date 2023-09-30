@@ -10,8 +10,8 @@ import {
 } from 'react-native'
 import { ThemeProp } from 'react-native-paper/lib/typescript/types'
 import { useInternalTheme } from './theming'
-import { accessibilityProps } from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon'
-import { Consumer } from 'react-native-paper/lib/typescript/core/settings'
+import { accessibilityProps } from './MaterialCommunityIcon'
+import { Consumer } from './settings'
 
 type IconSourceBase = string | ImageSourcePropType;
 

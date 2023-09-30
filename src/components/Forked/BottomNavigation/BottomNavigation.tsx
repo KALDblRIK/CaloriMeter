@@ -5,6 +5,7 @@
 /* eslint-disable complexity */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable react/display-name */
+
 import * as React from 'react'
 import {
   Animated,
@@ -24,7 +25,7 @@ import BottomNavigationBar from './BottomNavigationBar'
 import BottomNavigationRouteScreen from './BottomNavigationRouteScreen'
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon'
 import { ThemeProp } from 'react-native-paper/lib/typescript/types'
-import { useInternalTheme } from './theming'
+import { useInternalTheme } from '../theming'
 
 type BaseRoute = {
   key: string
@@ -403,6 +404,7 @@ const BottomNavigation = <Route extends BaseRoute>({
     (index: number) => {
       Animated.parallel([
         ...navigationState.routes.map((_, i) =>
+        // @ts-ignore
           Animated.timing(tabsPositionAnims[i], {
             toValue: i === index ? 0 : i >= index ? 1 : -1,
             duration: theme.isV3 || shifting ? 150 * scale : 0,
@@ -414,6 +416,7 @@ const BottomNavigation = <Route extends BaseRoute>({
         if (finished) {
           // Position all inactive screens offscreen to save memory usage
           // Only do it when animation has finished to avoid glitches mid-transition if switching fast
+        // @ts-ignore
           offsetsAnims.forEach((offset, i) => {
             if (i === index) {
               offset.setValue(0)
@@ -446,6 +449,7 @@ const BottomNavigation = <Route extends BaseRoute>({
 
   React.useEffect(() => {
     // Reset offsets of previous and current tabs before animation
+    // @ts-ignore
     offsetsAnims.forEach((offset, i) => {
       if (
         i === navigationState.index ||
@@ -507,6 +511,7 @@ const BottomNavigation = <Route extends BaseRoute>({
             sceneAnimationEnabled && focused
 
           const opacity = sceneAnimationEnabled
+            // @ts-ignore
             ? tabsPositionAnims[index].interpolate({
                 inputRange: [-1, 0, 1],
                 outputRange: [0, 1, 0],
@@ -518,6 +523,7 @@ const BottomNavigation = <Route extends BaseRoute>({
           const offsetTarget = focused ? 0 : FAR_FAR_AWAY
 
           const top = sceneAnimationEnabled
+            // @ts-ignore
             ? offsetsAnims[index].interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, offsetTarget],
@@ -526,6 +532,7 @@ const BottomNavigation = <Route extends BaseRoute>({
 
           const left =
             sceneAnimationType === 'shifting'
+              // @ts-ignore
               ? tabsPositionAnims[index].interpolate({
                   inputRange: [-1, 0, 1],
                   outputRange: [-50, 0, 50],

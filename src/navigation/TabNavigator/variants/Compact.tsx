@@ -2,7 +2,7 @@ import React from 'react'
 import { CommonActions, useNavigationBuilder } from '@react-navigation/native'
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 import { EdgeInsets } from 'react-native-safe-area-context'
-import BottomNavigation from '../../../components/BottomNavigation/BottomNavigation'
+import BottomNavigation from '../../../components/Forked/BottomNavigation/BottomNavigation'
 import { useTheme } from 'react-native-paper'
 
 type Props = {
