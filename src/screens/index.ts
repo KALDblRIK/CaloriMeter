@@ -1,3 +1,3 @@
-export * from './Home'
+export * from './Today'
 export * from './History'
 export * from './Profile'

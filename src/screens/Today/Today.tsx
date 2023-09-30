@@ -2,13 +2,13 @@ import React from 'react'
 import { StyleSheet, SafeAreaView } from 'react-native'
 import { Appbar, useTheme } from 'react-native-paper'
 
-export const HomeScreen = () => {
+export const TodayScreen = () => {
   const theme = useTheme()
 
   return (
     <>
       <Appbar.Header theme={theme} mode="small">
-        <Appbar.Content title="Home" />
+        <Appbar.Content title="Today" />
       </Appbar.Header>
       <SafeAreaView style={styles.wrapper}>
       </SafeAreaView>

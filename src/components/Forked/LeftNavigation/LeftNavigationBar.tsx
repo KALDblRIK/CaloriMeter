@@ -217,7 +217,6 @@ const MIN_RIPPLE_SCALE = 0.001 // Minimum scale is not 0 due to bug with animati
 const MIN_TAB_WIDTH = 96
 const MAX_TAB_WIDTH = 168
 const BAR_HEIGHT = 56
-const OUTLINE_WIDTH = 64
 
 const Touchable = <Route extends BaseRoute>({
   route: _0,
@@ -772,7 +771,6 @@ const LeftNavigationBar = <Route extends BaseRoute>({
               accessibilityLabel: getAccessibilityLabel({ route }),
               accessibilityRole: Platform.OS === 'ios' ? 'button' : 'tab',
               accessibilityState: { selected: focused },
-              style: [styles.item, isV3 && styles.v3Item],
               children: (
                 <View
                   pointerEvents="none"

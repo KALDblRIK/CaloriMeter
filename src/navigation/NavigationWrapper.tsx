@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { createMyNavigator } from './TabNavigator'
-import { HistoryScreen, HomeScreen, ProfileScreen } from '../screens'
+import { HistoryScreen, TodayScreen, ProfileScreen } from '../screens'
 
 const Tab = createMyNavigator()
 
@@ -17,12 +17,12 @@ export const NavigationWrapper = () => {
       }]}
     >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Today"
+        component={TodayScreen}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Today',
           tabBarIcon: ({ color, size }: { color: string; size: number}) => {
-            return <Icon name="home" size={size} color={color} />
+            return <Icon name="calendar-today" size={size} color={color} />
           },
           headerShown: false,
         }}
