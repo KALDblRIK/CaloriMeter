@@ -5,14 +5,14 @@ import { EdgeInsets } from 'react-native-safe-area-context'
 import BottomNavigation from '../../../components/Forked/BottomNavigation/BottomNavigation'
 import { useTheme } from 'react-native-paper'
 
-type Props = {
+type CompactProps = {
   navigationProps: ReturnType<typeof useNavigationBuilder>
   insets: EdgeInsets
   tabBarStyle: StyleProp<ViewStyle>
   contentStyle: StyleProp<ViewStyle>
 }
 
-export const Compact = (props: Props) => {
+export const Compact = (props: CompactProps) => {
   const { navigationProps, insets, contentStyle } = props
   const theme = useTheme()
   const { navigation, NavigationContent, state, descriptors } = navigationProps

@@ -3,7 +3,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { createMyNavigator } from './TabNavigator'
 import { HistoryScreen, HomeScreen, ProfileScreen } from '../screens'
-import { View } from 'react-native'
 
 const Tab = createMyNavigator()
 
@@ -17,7 +16,7 @@ export const NavigationWrapper = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
             return <Icon name="home" size={size} color={color} />
           },
           headerShown: false,
@@ -28,7 +27,7 @@ export const NavigationWrapper = () => {
         component={HistoryScreen}
         options={{
           tabBarLabel: 'History',
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
             return <Icon name="history" size={size} color={color} />
           },
           headerShown: false,
@@ -39,7 +38,7 @@ export const NavigationWrapper = () => {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size }: { color: string; size: number}) => {
             return <Icon name="account" size={size} color={color} />
           },
           headerShown: false,

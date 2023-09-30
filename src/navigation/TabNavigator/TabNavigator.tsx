@@ -9,7 +9,7 @@ import {
   ParamListBase,
   TabNavigationState,
 } from '@react-navigation/native'
-import { Compact, Expanded, Medium } from './variants'
+import { Compact, Medium } from './variants'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 type TabNavigationConfig = {
@@ -57,12 +57,15 @@ const TabNavigator = (props: TabNavigatorProps) => {
   const { width } = useWindowDimensions()
 
 
-  if (width >= 840) {
-    return <Expanded />
-  }
-
-  if (width >= 600 && width < 840) {
-    return <Medium />
+  if (width >= 600) {
+    return (
+      <Medium
+        insets={insets}
+        tabBarStyle={tabBarStyle}
+        contentStyle={contentStyle}
+        navigationProps={navigationProps}
+      />
+    )
   }
 
   return (
