@@ -16,6 +16,6 @@ export const HistoryScreen = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flexGrow: 1,
   },
 })

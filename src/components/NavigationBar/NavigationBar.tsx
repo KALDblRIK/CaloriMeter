@@ -16,7 +16,7 @@ export const NavigationBar = (props: BottomTabBarProps) => {
 
   if (width >= 840) {
     return (
-      <Text>Medium</Text>
+      <Text>Expanded</Text>
     )
   }
 

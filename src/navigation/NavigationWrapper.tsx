@@ -1,19 +1,16 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { HomeScreen } from '../screens/Home'
-import { HistoryScreen } from '../screens/History'
-import { ProfileScreen } from '../screens/Profile'
-import { NavigationBar } from '../components'
+import { createMyNavigator } from './TabNavigator'
+import { HistoryScreen, HomeScreen, ProfileScreen } from '../screens'
+import { View } from 'react-native'
 
-const Tab = createBottomTabNavigator()
+const Tab = createMyNavigator()
 
 export const NavigationWrapper = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      tabBar={(props) => <NavigationBar {...props} />}
     >
       <Tab.Screen
         name="Home"

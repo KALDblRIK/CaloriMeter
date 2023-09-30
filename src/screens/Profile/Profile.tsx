@@ -50,7 +50,8 @@ export const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flexGrow: 1,
+    backgroundColor: 'red',
   },
   form: {
     margin: 16,
